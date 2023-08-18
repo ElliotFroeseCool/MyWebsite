@@ -6,14 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Elliot Froese</title>
 </head>
-<script>
-	function loadData()
-	{
-		var theData = new XMLHttpRequest();
-		theData.open("GET", "http://data.fixer.io/api/latest?access_key=0279a7a3b03a68c40fb843ee653ae196", true);
-		theData.send();
-	}
-</script>
 <style>
 .title
 {
@@ -79,9 +71,30 @@ a:hover
 	<div class="ramble">
 	NOt
 	</div>
-	<div id="demo">
-		<button type="button" onclick="loadData()">theButton</button>
-	</div>
+	<?php
+	// set API Endpoint, access key, required parameters
+	$endpoint = 'convert';
+	$access_key = '0279a7a3b03a68c40fb843ee653ae196';
+
+	$from = 'USD';
+	$to = 'EUR';
+	$amount = 10;
+
+	// initialize CURL:
+	$ch = curl_init('http://data.fixer.io/api/'.$endpoint.'?access_key='.$access_key.'&from='.$from.'&to='.$to.'&amount='.$amount.'');
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+	// get the JSON data:
+	$json = curl_exec($ch);
+	curl_close($ch);
+
+	// Decode JSON response:
+	$conversionResult = json_decode($json, true);
+
+	// access the conversion result
+	echo $conversionResult['result'];
+	
+	?>
 </body>
 
 </html>
