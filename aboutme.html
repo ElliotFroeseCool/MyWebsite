@@ -10,13 +10,7 @@
 	function loadData()
 	{
 		var theData = new XMLHttpRequest();
-		theData.onreadystatechange = function()
-		{
-			if(this.readyState == 4 && this.status == 200)
-			{
-				document.getElementById("demo").innerHTML = this.responseText;
-			}
-		}
+		
 		theData.open("GET", "http://data.fixer.io/api/latest?access_key=0279a7a3b03a68c40fb843ee653ae196", true);
 		theData.send();
 	}
