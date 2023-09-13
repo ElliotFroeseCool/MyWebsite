@@ -74,7 +74,6 @@ a:hover
 	Money In CAD: 5000
 	</div>
 	<div class="ramble" id="conversionrate"></div>
-	<div class="ramble" id="test"></div>
 </body>
 
 <script>
@@ -82,7 +81,6 @@ fetch('https://data.fixer.io/api/latest?access_key=0279a7a3b03a68c40fb843ee653ae
     .then(function(response) {
         // When the page is loaded convert it to text
 		//(5000 * (USDCommaSplit[0] / CADCommaSplit[0]))
-	document.getElementById("test").innerHTML = "pizza";
         return response.text()
     })
     .then(function(html) {
