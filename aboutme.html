@@ -93,7 +93,7 @@ fetch('http://data.fixer.io/api/latest?access_key=0279a7a3b03a68c40fb843ee653ae1
         document.getElementById("conversionrate").innerHTML = "Money to USD: " + theNum.toFixed(2);
     })
     .catch(function(err) {  
-        console.log('Failed to fetch page: ', err);  
+        document.getElementById("conversionrate").innerHTML = "The Error: " + err;  
     });
 
 </script>
