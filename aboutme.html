@@ -71,7 +71,7 @@ a:hover
 	<div class="filler">
 	</div>
 	<div class="ramble">
-	Money In CAD: 50000
+	Money In CAD: 5000
 	</div>
 	<div class="ramble" id="conversionrate"></div>
 </body>
@@ -86,16 +86,16 @@ fetch('http://data.fixer.io/api/latest?access_key=0279a7a3b03a68c40fb843ee653ae1
     })
     .then(function(html) {
         var USDSplit = html.split('USD":');
-	var USDCommaSplit = USDSplit[1].split(',');
-	var CADSplit = html.split('CAD":');
-	var CADCommaSplit = CADSplit[1].split(',');
-	var theNum = (5000 * (USDCommaSplit[0] / CADCommaSplit[0]))
+		var USDCommaSplit = USDSplit[1].split(',');
+		var CADSplit = html.split('CAD":');
+		var CADCommaSplit = CADSplit[1].split(',');
+		var theNum = (5000 * (USDCommaSplit[0] / CADCommaSplit[0]))
         document.getElementById("conversionrate").innerHTML = "Money to USD: " + theNum.toFixed(2);
     })
     .catch(function(err) {  
         console.log('Failed to fetch page: ', err);  
     });
-	document.getElementById("conversionrate").innerHTML = "Money to USD: ";
+
 </script>
 
 </html>
